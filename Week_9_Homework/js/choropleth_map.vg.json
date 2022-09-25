@@ -16,22 +16,22 @@
             "url": "https://raw.githubusercontent.com/cchi0067/FIT3179/Week_9_Homework/data/happiness_ranking_2015.csv"
           },
           "key": "Country",
-          "fields": ["Happiness Score"]
+          "fields": ["Score"]
         }
       },
-      {"calculate": "datum.Happiness Score", "as": "Happiness Score"}
+      {"calculate": "datum.Score", "as": "Happiness Score"}
     ],
     "mark": {"type": "geoshape"},
     "encoding": {
       "color": {
-        "field": "Happiness Score",
+        "field": "core",
         "type": "quantitative",
         "scale": {"type": "linear"}
       },
       "tooltip": [
         {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-        {"field": "Happiness Rank", "type": "quantitative"},
-        {"field": "Happiness Score", "type": "quantitative"}
+        {"field": "Rank", "type": "quantitative"},
+        {"field": "Score", "type": "quantitative"}
       ]
     }
   }
