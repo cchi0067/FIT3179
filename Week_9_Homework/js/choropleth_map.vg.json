@@ -24,14 +24,13 @@
     "mark": {"type": "geoshape"},
     "encoding": {
       "color": {
-        "field": "core",
+        "field": "Happiness Score",
         "type": "quantitative",
         "scale": {"type": "linear"}
       },
       "tooltip": [
         {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-        {"field": "Rank", "type": "quantitative"},
-        {"field": "Score", "type": "quantitative"}
+        {"field": "Happiness Score", "type": "quantitative"}
       ]
     }
   }
