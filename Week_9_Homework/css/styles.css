@@ -7,4 +7,5 @@
     overflow: auto;
     display: flex;
     align-items: center;
+    z-index: 15;
 }
