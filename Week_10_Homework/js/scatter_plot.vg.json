@@ -1,0 +1,124 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 600,
+    "title": "Score contributed by Health against Happiness Score by Country in 2015",
+    "data": {
+      "url": "https://raw.githubusercontent.com/cchi0067/FIT3179/main/Week_9_Homework/data/happiness_ranking_2015.csv"
+    },
+    "params": [
+      {
+        "name": "Region_selection",
+        "bind": {
+          "input": "select",
+          "options": [
+            null,
+            "North America",
+            "Latin America and Caribbean",
+            "Central and Eastern Europe",
+            "Western Europe",
+            "Middle East and Northern Africa",
+            "Sub-Saharan Africa",
+            "Southeastern Asia",
+            "Southern Asia",
+            "Eastern Asia",
+            "Australia and New Zealand"
+          ],
+          "labels": [
+            "Show All",
+            "North America",
+            "Latin America and Caribbean",
+            "Central and Eastern Europe",
+            "Western Europe",
+            "Middle East and Northern Africa",
+            "Sub-Saharan Africa",
+            "Southeastern Asia",
+            "Southern Asia",
+            "Eastern Asia",
+            "Oceania"
+          ],
+          "name": "Region Selection: "
+        }
+      }
+    ],
+    "transform": [
+      {
+        "filter": "Region_selection == null || datum.Region == Region_selection"
+      }
+    ],
+    "encoding": {
+      "x": {
+        "field": "Score",
+        "type": "quantitative",
+        "title": "Happiness Score",
+        "axis": {"tickCount": 6},
+        "scale": {"type": "linear", "domain": [2, 8]}
+      },
+      "y": {
+        "field": "Health (Life Expectancy)",
+        "type": "quantitative",
+        "title": "Score contributed by Health",
+        "axis": {"tickCount": 6},
+        "scale": {"type": "linear", "domain": [0, 1.2]}
+      }
+    },
+    "layer": [
+      {
+        "mark": "circle",
+        "encoding": {
+          "color": {
+            "field": "Region",
+            "type": "nominal",
+            "scale": {
+              "domain": [
+                "North America",
+                "Latin America and Caribbean",
+                "Central and Eastern Europe",
+                "Western Europe",
+                "Middle East and Northern Africa",
+                "Sub-Saharan Africa",
+                "Southeastern Asia",
+                "Southern Asia",
+                "Eastern Asia",
+                "Oceania"
+              ]
+            }
+          },
+          "opacity": {"value": 0.6},
+          "tooltip": [
+            {"field": "Country", "type": "nominal"},
+            {"field": "Region", "type": "nominal"},
+            {"field": "Score", "type": "quantitative", "format": ".2f"},
+            {"field": "Health (Life Expectancy)", "type": "quantitative", "format": ".2f"}
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "right",
+          "baseline": "middle",
+          "dx": -12,
+          "fontSize": 11.5,
+          "fontStyle": "italic"
+        },
+        "encoding": {
+          "text": {"field": "Country", "type": "nominal"},
+          "color": {"value": "black"},
+          "opacity": {
+            "condition": {
+              "test": "datum['Country'] == 'China' || datum['Country'] == 'Singapore' || datum['Country'] == 'Australia' || datum['Country'] == 'New Zealand' || datum['Country'] == 'Italy' || datum['Country'] == 'Yemen' ||  datum['Country'] == 'United States'",
+              "value": 1
+            },
+            "value": 0
+          },
+          "tooltip": [
+            {"field": "Country", "type": "nominal"},
+            {"field": "Region", "type": "nominal"},
+            {"field": "Score", "type": "quantitative", "format": ".2f"},
+            {"field": "Health (Life Expectancy)", "type": "quantitative", "format": ".2f"}
+          ]
+        }
+      }
+    ]
+  }
