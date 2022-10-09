@@ -32,11 +32,10 @@ body {
 }
 
 .page {
-    width: 850px;
+    width: 100%;
     background-color: white;
     margin: auto;
     padding: 50px;
-    padding-top: 35px;
 }
 
 .vis-container {
