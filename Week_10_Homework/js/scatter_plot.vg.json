@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 600,
-    "height": 600,
+    "height": 550,
     "title": "Score contributed by Health against Happiness Score by Country in 2015",
     "data": {
       "url": "https://raw.githubusercontent.com/cchi0067/FIT3179/main/Week_9_Homework/data/happiness_ranking_2015.csv"
