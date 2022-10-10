@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Happiness Score by Country in 2015",
-    "width": 550,
+    "width": 575,
     "height": 600,
     "projection": {"type": "equalEarth"},
     "data": {
